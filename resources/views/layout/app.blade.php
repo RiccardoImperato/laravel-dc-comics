@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <main>
+    <main class="container py-5">
         @yield('main')
     </main>
 </body>

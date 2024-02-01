@@ -3,7 +3,7 @@
 @section('main')
     <h1>Comics</h1>
     <a href="{{ route('comics.create') }}">Add comic</a>
-    <ul>
+    <ul class="list-unstyled mt-3">
         @foreach ($comics as $comic)
             <li>{{ $comic->id }} - {{ $comic->title }} - <a href="{{ route('comics.show', $comic) }}">datails</a>
             </li>

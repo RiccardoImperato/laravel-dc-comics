@@ -1,1 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
+
+/* Common */
+
+body {
+    color: #fff;
+    background-color: #222222;
+}
+
+/*/ Common */
+
+
+/* Show */
+
+figure {
+    width: 300px;
+
+    img {
+        height: 460px;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+/*/ Show */
