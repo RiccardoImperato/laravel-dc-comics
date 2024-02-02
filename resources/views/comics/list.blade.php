@@ -9,6 +9,11 @@
                 {{ $comic->id }} - {{ $comic->title }} -
                 <a href="{{ route('comics.show', $comic) }}">Details</a> -
                 <a href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Delete comic">
+                </form>
             </li>
         @endforeach
     </ul>
