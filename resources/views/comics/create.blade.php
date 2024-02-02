@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" class="form-control" name="price" id="price">
+            <input type="number" class="form-control" name="price" id="price" step=".01">
         </div>
         <div class="mb-3">
             <label for="series" class="form-label">Series</label>
@@ -43,4 +43,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <a href="{{ route('comics.index') }}">Back</a>
 @endsection
