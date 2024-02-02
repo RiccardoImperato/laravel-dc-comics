@@ -26,6 +26,14 @@
             <input type="text" class="form-control" name="type" id="type">
         </div>
         <div class="mb-3">
+            <label for="artists" class="form-label">Artists</label>
+            <input type="text" class="form-control" name="artists" id="artists">
+        </div>
+        <div class="mb-3">
+            <label for="writers" class="form-label">Writers</label>
+            <input type="text" class="form-control" name="writers" id="writers">
+        </div>
+        <div class="mb-3">
             <label for="date" class="form-label">Sale date</label>
             <input type="date" class="form-control"name="sale_date" id="sale_date">
         </div>

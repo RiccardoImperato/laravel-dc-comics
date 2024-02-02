@@ -23,13 +23,13 @@
                     <h5>Type</h5> {{ $comic->type }}
                 </li>
             </ul>
-            <div>
+            <div class="mb-3">
+                <h5>Writers</h5>
+                {{ $comic->writers }}
+            </div>
+            <div class="mb-3">
                 <h5>Artists</h5>
-                <ul class="list-unstyled">
-                    @foreach ($comic->artists as $artist)
-                        <li>{{ $artist }}</li>
-                    @endforeach
-                </ul>
+                {{ $comic->artists }}
             </div>
         </div>
     </div>
