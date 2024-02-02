@@ -33,5 +33,5 @@
             </div>
         </div>
     </div>
-    <a href="{{ route('comics.index') }}">Back</a>
+    <a href="{{ route('comics.edit', $comic) }}">Edit</a> - <a href="{{ route('comics.index') }}">Back to comics</a>
 @endsection
