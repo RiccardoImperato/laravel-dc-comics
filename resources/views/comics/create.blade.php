@@ -41,7 +41,7 @@
             <label for="description">Description</label>
             <textarea class="form-control" name="description" id="description" style="height: 100px"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary my-3">Submit</button>
     </form>
-    <a href="{{ route('comics.index') }}">Back</a>
+    <a href="{{ route('comics.index') }}">Back to comics</a>
 @endsection
