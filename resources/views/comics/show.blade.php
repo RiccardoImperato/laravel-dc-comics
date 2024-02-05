@@ -33,5 +33,6 @@
             </div>
         </div>
     </div>
-    <a href="{{ route('comics.edit', $comic) }}">Edit</a> - <a href="{{ route('comics.index') }}">Back to comics</a>
+    <a href="{{ route('comics.index') }}" class="btn btn-primary btn-sm" role="button">Back to comics</a>
+    <a href="{{ route('comics.edit', $comic) }}" class="btn btn-secondary btn-sm" role="button">Edit comic</a>
 @endsection
