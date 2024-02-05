@@ -105,6 +105,9 @@ class ComicController extends Controller
                 'price' => 'Il prezzo deve avere 2 cifre decimali',
                 'price.min' => 'Il prezzo deve essere almeno :min $',
                 'type.max' => 'Il tipo può essere al massimo :max caratteri',
+                'description' => 'La descrizione può essere al massimo :max caratteri',
+                'artists' => 'La lista degli artisti può essere al massimo :max caratteri',
+                'writers' => 'La lista degli autori può essere al massimo :max caratteri',
             ]
         )->validate();
 
