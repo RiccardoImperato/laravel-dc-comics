@@ -7,40 +7,74 @@
         @method('PUT')
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="title" value="{{ $comic->title }}">
+            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                value="{{ old('title', $comic->title) }}">
+            @error('title')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image URL</label>
-            <input type="text" class="form-control" name="thumb" id="thumb" value="{{ $comic->thumb }}">
+            <input type="text" class="form-control @error('thumb') is-invalid @enderror" name="thumb"
+                value="{{ old('thumb', $comic->thumb) }}">
+            @error('thumb')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" class="form-control" name="price" id="price" step=".01"
-                value="{{ $comic->price }}">
+            <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" step=".01"
+                value="{{ old('price', $comic->price) }}">
+            @error('price')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="series" class="form-label">Series</label>
-            <input type="text" class="form-control" name="series" id="series" value="{{ $comic->series }}">
+            <input type="text" class="form-control @error('series') is-invalid @enderror" name="series"
+                value="{{ old('series', $comic->series) }}">
+            @error('series')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="type" class="form-label">Type</label>
-            <input type="text" class="form-control" name="type" id="type" value="{{ $comic->type }}">
+            <input type="text" class="form-control @error('type') is-invalid @enderror" name="type"
+                value="{{ old('type', $comic->type) }}">
+            @error('type')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="artists" class="form-label">Artists</label>
-            <input type="text" class="form-control" name="artists" id="artists" value="{{ $comic->artists }}">
+            <input type="text" class="form-control @error('artists') is-invalid @enderror" name="artists"
+                value="{{ old('artists', $comic->artists) }}">
+            @error('artists')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="writers" class="form-label">Writers</label>
-            <input type="text" class="form-control" name="writers" id="writers" value="{{ $comic->writers }}">
+            <input type="text" class="form-control @error('writers') is-invalid @enderror" name="writers"
+                value="{{ old('writers', $comic->writers) }}">
+            @error('writers')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="date" class="form-label">Sale date</label>
-            <input type="date" class="form-control"name="sale_date" id="sale_date" value="{{ $comic->sale_date }}">
+            <input type="date" class="form-control @error('sale_date') is-invalid @enderror" name="sale_date"
+                value="{{ old('date', $comic->date) }}">
+            @error('date')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description" id="description" style="height: 100px">{{ $comic->description }}</textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" style="height: 100px">{{ old('description', $comic->description) }}</textarea>
+            @error('description')
+                <div class="alert alert-danger mt-3">{{ $message }}</div>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary my-3">Submit</button>
     </form>
