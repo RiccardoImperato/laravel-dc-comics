@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -30,19 +32,9 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
+        $data = $this->validation($request->all());
         $comic = new Comic();
-        $comic->title = $data['title'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->type = $data['type'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->description = $data['description'];
-        $comic->writers = $data['writers'];
-        $comic->artists = $data['artists'];
-
+        $comic->fill($data);
         $comic->save();
 
         return redirect()->route('comics.show', $comic->id);
@@ -86,5 +78,26 @@ class ComicController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+    public function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'title' => 'required|max:50',
+            'thumb' => 'nullable|url',
+            'series' => 'nullable|max:50',
+            'price' => 'nullable|decimal:2,4',
+            'date' => 'date',
+            'type' => [
+                'nullable',
+                Rule::in(['comic book', 'graphic novel'])
+            ],
+            'description' => 'nullable|max:500',
+            'artists' => 'nullable|max:500',
+            'writers' => 'nullable|max:500',
+
+        ])->validate();
+
+        return $validator;
     }
 }
