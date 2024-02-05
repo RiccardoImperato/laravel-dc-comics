@@ -84,21 +84,29 @@ class ComicController extends Controller
 
     public function validation($data)
     {
-        $validator = Validator::make($data, [
-            'title' => 'required|max:50',
-            'thumb' => 'nullable|url',
-            'series' => 'nullable|max:50',
-            'price' => 'nullable|decimal:2,4|min:1',
-            'date' => 'date',
-            'type' => [
-                'nullable',
-                Rule::in(['comic book', 'graphic novel'])
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|max:50',
+                'thumb' => 'nullable|url',
+                'series' => 'nullable|max:50',
+                'price' => 'nullable|decimal:2,4|min:1',
+                'date' => 'date',
+                'type' => 'nullable|max:50',
+                'description' => 'nullable|max:500',
+                'artists' => 'nullable|max:500',
+                'writers' => 'nullable|max:500',
             ],
-            'description' => 'nullable|max:500',
-            'artists' => 'nullable|max:500',
-            'writers' => 'nullable|max:500',
-
-        ])->validate();
+            [
+                'title.required' => 'Titolo richiesto: inserisci un titolo per proseguire',
+                'title.max' => 'Il titolo può essere al massimo :max caratteri',
+                'thumb' => 'Url non valido: inserici l\'url con l\'indirizzo immagine',
+                'series.max' => 'La serie può essere al massimo :max caratteri',
+                'price' => 'Il prezzo deve avere 2 cifre decimali',
+                'price.min' => 'Il prezzo deve essere almeno :min $',
+                'type.max' => 'Il tipo può essere al massimo :max caratteri',
+            ]
+        )->validate();
 
         return $validator;
     }
