@@ -5,18 +5,22 @@
     <a href="{{ route('home') }}">Home</a> - <a href="{{ route('comics.create') }}">Add comic</a>
     <ul class="list-unstyled mt-3">
         @foreach ($comics as $comic)
-            <li class="d-flex justify-content-between align-items-center">
+            <li class="d-flex justify-content-between align-items-center border-bottom border-white">
                 <div>
-                    {{ $comic->id }} - {{ $comic->title }} -
-                    <a href="{{ route('comics.show', $comic) }}">Details</a> -
-                    <a href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+                    {{ $comic->id }} - {{ $comic->title }}
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal-{{ $comic->id }}">
-                    Delete comic
-                </button>
-                <!-- Modal -->
+                <div>
+                    <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary btn-sm" role="button">Details</a>
+                    <a href="{{ route('comics.edit', $comic) }}" class="btn btn-secondary  btn-sm" role="button">Edit
+                        comic</a>
+                    {{-- Button trigger modal  --}}
+                    <button type="button" class="btn btn-danger btn-sm my-2" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal-{{ $comic->id }}">
+                        Delete comic
+                    </button>
+                    {{-- Button trigger modal  --}}
+                </div>
+                {{-- Modal  --}}
                 <div class="modal fade" id="exampleModal-{{ $comic->id }}" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -40,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- Modal  --}}
             </li>
         @endforeach
     </ul>
