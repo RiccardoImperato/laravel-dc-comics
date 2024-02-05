@@ -64,7 +64,7 @@
         <div class="mb-3">
             <label for="date" class="form-label">Sale date</label>
             <input type="date" class="form-control @error('sale_date') is-invalid @enderror" name="sale_date"
-                value="{{ old('date', $comic->date) }}">
+                value="{{ old('date', $comic->sale_date) }}">
             @error('date')
                 <div class="alert alert-danger mt-3">{{ $message }}</div>
             @enderror

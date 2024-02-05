@@ -71,7 +71,7 @@
         </div>
         <div class="mb-3">
             <label for="description">Description</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" name="description" style="height: 100px"></textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" name="description" style="height: 100px">{{ old('description') }}</textarea>
             @error('description')
                 <div class="alert alert-danger mt-3">{{ $message }}</div>
             @enderror
